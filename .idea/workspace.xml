@@ -5,42 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e672665-67de-4d4d-b30d-65217f29e7d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/api/ApiErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/api/EspecialidadApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/api/MedicoApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/api/PacienteApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/api/UsuarioApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Especialidad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Medico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Paciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/types/Rol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/types/Sexo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/types/TipoDocumento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/respositories/EspecialidadRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/respositories/MedicoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/respositories/PacienteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/respositories/UsuarioRespository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/services/MedicoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/services/PacienteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/fondo.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/tarjetas.avif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/EspecialidadApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/Medico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/MedicoApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/rubejuca/proyectointegrador/ProyectoIntegradorApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rubejuca/proyectointegrador/model/entity/Paciente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

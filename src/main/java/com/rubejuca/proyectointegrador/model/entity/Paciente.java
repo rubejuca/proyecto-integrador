@@ -19,7 +19,7 @@ public class Paciente {
   @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
   private String id;
 
-  @Column(name = "documento", nullable = false, length = 15)
+  @Column(name = "documento", nullable = false, length = 20)
   private String documento;
 
   @Column(name = "tipo_documento", nullable = false, length = 5)
