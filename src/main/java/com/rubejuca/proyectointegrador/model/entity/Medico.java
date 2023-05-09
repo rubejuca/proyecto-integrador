@@ -2,6 +2,7 @@ package com.rubejuca.proyectointegrador.model.entity;
 
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -11,9 +12,10 @@ import javax.persistence.*;
 public class Medico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false)
-    private Long id;
+    private String id;
 
     @Column(name = "documento", nullable = false)
     private String documento;
