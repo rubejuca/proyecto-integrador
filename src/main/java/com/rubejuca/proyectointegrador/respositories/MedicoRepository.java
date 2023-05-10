@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface MedicoRepository extends JpaRepository<Medico, Long> {
+public interface MedicoRepository extends JpaRepository<Medico, String> {
 
   boolean existsByDocumentoAndTipoDocumento(String documento, TipoDocumento tipoDocumento);
 

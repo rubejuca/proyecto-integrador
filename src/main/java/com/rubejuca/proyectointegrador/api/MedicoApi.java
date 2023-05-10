@@ -29,7 +29,7 @@ public class MedicoApi {
   }
 
   @GetMapping("/api/medicos/{id}")
-  public Medico leer(@PathVariable("id") Long id) {
+  public Medico leer(@PathVariable("id") String id) {
     return medicoService.read(id);
   }
 

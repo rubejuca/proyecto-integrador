@@ -21,7 +21,7 @@ public class MedicoService {
     return medicoRepository.save(medico);
   }
 
-  public Medico read(Long id) {
+  public Medico read(String id) {
     return medicoRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException(String.format("El médico con id: %d no existe", id)));
   }
