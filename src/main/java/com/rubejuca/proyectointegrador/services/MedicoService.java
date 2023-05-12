@@ -16,14 +16,15 @@ public class MedicoService {
 
   public Medico create(Medico medico) {
     if (medicoRepository.existsByDocumentoAndTipoDocumento(medico.getDocumento(), medico.getTipoDocumento())) {
-      throw new IllegalArgumentException(String.format("El médico %s-%s ya existe", medico.getTipoDocumento(), medico.getDocumento()));
+      throw new IllegalArgumentException(
+          String.format("El médico %s-%s ya existe", medico.getTipoDocumento(), medico.getDocumento()));
     }
     return medicoRepository.save(medico);
   }
 
   public Medico read(String id) {
     return medicoRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException(String.format("El médico con id: %d no existe", id)));
+        .orElseThrow(() -> new EntityNotFoundException(String.format("El médico con id: %s no existe", id)));
   }
 
   public List<Medico> readAll() {
@@ -32,7 +33,8 @@ public class MedicoService {
 
   public Medico update(Medico medico) {
     medicoRepository.findById(medico.getId())
-        .orElseThrow(() -> new EntityNotFoundException(String.format("El médico con id: %d no existe", medico.getId())));
+        .orElseThrow(
+            () -> new EntityNotFoundException(String.format("El médico con id: %s no existe", medico.getId())));
     return medicoRepository.save(medico);
   }
 

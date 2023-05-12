@@ -16,7 +16,8 @@ public class PacienteService {
 
   public Paciente create(Paciente paciente) {
     if (pacienteRepository.existsByDocumentoAndTipoDocumento(paciente.getDocumento(), paciente.getTipoDocumento())) {
-      throw new IllegalArgumentException(String.format("El paciente %s-%s ya existe", paciente.getTipoDocumento(), paciente.getDocumento()));
+      throw new IllegalArgumentException(
+          String.format("El paciente %s-%s ya existe", paciente.getTipoDocumento(), paciente.getDocumento()));
     }
     return pacienteRepository.save(paciente);
   }
@@ -27,12 +28,13 @@ public class PacienteService {
 
   public Paciente read(String id) {
     return pacienteRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException(String.format("El paciente con id: %d no existe", id)));
+        .orElseThrow(() -> new EntityNotFoundException(String.format("El paciente con id: %s no existe", id)));
   }
 
   public Paciente update(Paciente paciente) {
     pacienteRepository.findById(paciente.getId())
-        .orElseThrow(() -> new EntityNotFoundException(String.format("El paciente con id: %d no existe", paciente.getId())));
+        .orElseThrow(
+            () -> new EntityNotFoundException(String.format("El paciente con id: %s no existe", paciente.getId())));
     return pacienteRepository.save(paciente);
   }
 }

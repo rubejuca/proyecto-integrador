@@ -32,7 +32,7 @@ public class Paciente {
   @Column(name = "apellidos", nullable = false)
   private String apellidos;
 
-  @Column(name = "sexo", nullable = false)
+  @Column(name = "sexo")
   @Enumerated(EnumType.STRING)
   private Sexo sexo;
 
@@ -42,7 +42,7 @@ public class Paciente {
   @Column(name = "telefono", nullable = false)
   private String telefono;
 
-  @Column(name = "fecha_nacimiento", nullable = false)
+  @Column(name = "fecha_nacimiento")
   private LocalDate fechaNacimiento;
 
   @Column(name = "ciudad")
