@@ -2,18 +2,22 @@ package com.rubejuca.proyectointegrador.api;
 
 import com.rubejuca.proyectointegrador.model.entity.Paciente;
 import com.rubejuca.proyectointegrador.services.PacienteService;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 public class PacienteApi {
 
   @Autowired
   PacienteService pacienteService;
 
-  @PostMapping ("/api/pacientes")
+  @PostMapping("/api/pacientes")
   public Paciente crear(@RequestBody Paciente paciente) {
     return pacienteService.create(paciente);
   }
@@ -29,7 +33,8 @@ public class PacienteApi {
   }
 
   @PutMapping("/api/pacientes/{id}")
-  public Paciente actualizar(@PathVariable("id") String id, Paciente paciente) {
+  public Paciente actualizar(@PathVariable("id") String id, @RequestBody Paciente paciente) {
+    log.info("Paciente: {}", paciente);
     return pacienteService.update(paciente);
   }
 

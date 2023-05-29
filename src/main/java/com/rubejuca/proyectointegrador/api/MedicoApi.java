@@ -34,7 +34,7 @@ public class MedicoApi {
   }
 
   @PutMapping("/api/medicos/{id}")
-  public Medico actualizar(@PathVariable("id") String id, Medico medico) {
+  public Medico actualizar(@PathVariable("id") String id, @RequestBody Medico medico) {
     return medicoService.update(medico);
   }
 
