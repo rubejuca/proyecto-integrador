@@ -6,6 +6,7 @@ public enum Permisos {
     MENU_PACIENTES,
     MENU_CITAS,
     MENU_ATENCION,
-    MENU_USUARIOS
+    MENU_USUARIOS,
+    MENU_REGISTRO
 
 }

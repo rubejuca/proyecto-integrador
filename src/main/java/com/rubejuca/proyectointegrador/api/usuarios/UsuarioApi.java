@@ -4,12 +4,15 @@ import com.rubejuca.proyectointegrador.model.entity.Usuario;
 import com.rubejuca.proyectointegrador.model.types.Permisos;
 import com.rubejuca.proyectointegrador.services.UsuarioService;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 public class UsuarioApi {
 
   @Autowired
@@ -37,6 +40,7 @@ public class UsuarioApi {
 
   @GetMapping("/api/usuarios/permisos")
   public List<Permisos> findPermisos(@RequestParam("email") String email) {
+    log.info("email: {}", email);
     Usuario usuario = usuarioService.findByEmail(email);
     return usuario.getRol().getPermisos();
   }
