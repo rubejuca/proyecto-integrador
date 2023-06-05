@@ -17,4 +17,8 @@ public interface CitaInfo {
     String getMedicoNombre();
 
     String getEstado();
+
+    String getMotivo();
+
+    String getDiagnostico();
 }

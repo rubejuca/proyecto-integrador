@@ -39,6 +39,7 @@ public class Medico {
     @Column(name = "direccion", nullable = false)
     private String direccion;
 
-    //private List<String> especialidades;
+    @Column(name = "especialidad", nullable = false)
+    private String especialidad;
 
 }

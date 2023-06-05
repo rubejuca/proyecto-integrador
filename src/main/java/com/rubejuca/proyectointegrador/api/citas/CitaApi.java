@@ -26,4 +26,19 @@ public class CitaApi {
         return citaService.readAll();
     }
 
+    @GetMapping("/api/citas/{citaId}")
+    public CitaInfo leer(@PathVariable("citaId") String citaId) {
+        return citaService.findById(citaId);
+    }
+
+    @PutMapping("/api/citas/{citaId}")
+    public Cita actualizar(@PathVariable("citaId") String citaId, @RequestBody ActualizarCitaDto dto) {
+        return citaService.update(citaId, dto);
+    }
+
+    @PutMapping("/api/citas/{citaId}/atender")
+    public Cita atender(@PathVariable("citaId") String citaId, @RequestBody AtencionCitaDto dto) {
+        return citaService.atender(citaId, dto.diagnostico());
+    }
+
 }

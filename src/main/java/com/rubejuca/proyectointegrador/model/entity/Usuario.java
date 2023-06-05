@@ -25,4 +25,7 @@ public class Usuario {
   @Enumerated(EnumType.STRING)
   private Rol rol;
 
+  @Column(name = "medicoId", length = 36)
+  private String medicoId;
+
 }
