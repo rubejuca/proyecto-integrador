@@ -5,13 +5,12 @@ import com.rubejuca.proyectointegrador.model.entity.Cita;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.respositories.CitaRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import javax.persistence.EntityNotFoundException;
 
 @Service
 public class CitaService {

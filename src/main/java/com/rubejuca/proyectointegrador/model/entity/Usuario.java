@@ -1,9 +1,8 @@
 package com.rubejuca.proyectointegrador.model.entity;
 
 import com.rubejuca.proyectointegrador.model.types.Rol;
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 

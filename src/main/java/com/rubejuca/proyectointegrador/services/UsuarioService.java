@@ -2,8 +2,8 @@ package com.rubejuca.proyectointegrador.services;
 
 import java.util.List;
 
-import javax.persistence.EntityNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.rubejuca.proyectointegrador.api.usuarios.ActualizarUsuarioDto;

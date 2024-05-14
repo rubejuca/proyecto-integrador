@@ -1,10 +1,9 @@
 package com.rubejuca.proyectointegrador.model.entity;
 
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 
 @Data
 @Entity

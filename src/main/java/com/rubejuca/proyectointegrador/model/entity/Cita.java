@@ -1,20 +1,17 @@
 package com.rubejuca.proyectointegrador.model.entity;
 
+import com.rubejuca.proyectointegrador.model.types.EstadoCitas;
+import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.util.Assert;
 
-import com.rubejuca.proyectointegrador.model.types.EstadoCitas;
-
-import javax.persistence.*;
-
-import static com.rubejuca.proyectointegrador.services.ValidationService.*;
-
 import java.time.LocalDateTime;
+
+import static com.rubejuca.proyectointegrador.services.ValidationService.isNotEmpty;
+import static com.rubejuca.proyectointegrador.services.ValidationService.notNull;
 
 @Builder
 @Getter

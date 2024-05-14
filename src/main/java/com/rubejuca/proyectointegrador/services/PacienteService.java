@@ -2,10 +2,10 @@ package com.rubejuca.proyectointegrador.services;
 
 import com.rubejuca.proyectointegrador.model.entity.Paciente;
 import com.rubejuca.proyectointegrador.respositories.PacienteRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service

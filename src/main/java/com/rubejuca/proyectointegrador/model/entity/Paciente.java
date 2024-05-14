@@ -2,10 +2,10 @@ package com.rubejuca.proyectointegrador.model.entity;
 
 import com.rubejuca.proyectointegrador.model.types.Sexo;
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
