@@ -2,10 +2,12 @@ package com.rubejuca.proyectointegrador.model.entity;
 
 import com.rubejuca.proyectointegrador.model.types.Rol;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
 
+@Builder
 @Data
 @Entity
 @Table(name = "USUARIO")
