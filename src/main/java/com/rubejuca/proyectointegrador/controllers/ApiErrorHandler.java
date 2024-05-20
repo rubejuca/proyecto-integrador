@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api;
+package com.rubejuca.proyectointegrador.controllers;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;

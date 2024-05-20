@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api.citas;
+package com.rubejuca.proyectointegrador.controllers.citas;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
 package com.rubejuca.proyectointegrador.services;
 
-import com.rubejuca.proyectointegrador.api.citas.ActualizarCitaDto;
+import com.rubejuca.proyectointegrador.controllers.citas.ActualizarCitaDto;
 import com.rubejuca.proyectointegrador.model.entity.Cita;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.respositories.CitaRepository;

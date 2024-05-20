@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api.usuarios;
+package com.rubejuca.proyectointegrador.controllers.usuarios;
 
 import com.rubejuca.proyectointegrador.model.types.Rol;
 

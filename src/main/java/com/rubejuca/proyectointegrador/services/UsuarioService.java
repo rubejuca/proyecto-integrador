@@ -6,11 +6,9 @@ import java.util.List;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.rubejuca.proyectointegrador.api.usuarios.ActualizarUsuarioDto;
+import com.rubejuca.proyectointegrador.controllers.usuarios.ActualizarUsuarioDto;
 import com.rubejuca.proyectointegrador.model.entity.Usuario;
 import com.rubejuca.proyectointegrador.respositories.UsuarioRepository;
-
-import ch.qos.logback.core.joran.action.ActionUtil;
 
 @Service
 public class UsuarioService {

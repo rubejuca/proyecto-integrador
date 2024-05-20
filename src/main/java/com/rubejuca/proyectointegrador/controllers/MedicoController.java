@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api;
+package com.rubejuca.proyectointegrador.controllers;
 
 import com.rubejuca.proyectointegrador.model.entity.Medico;
 import com.rubejuca.proyectointegrador.services.MedicoService;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class MedicoApi {
+public class MedicoController {
 
   @Autowired
   MedicoService medicoService;

@@ -1,11 +1,11 @@
-package com.rubejuca.proyectointegrador.api;
+package com.rubejuca.proyectointegrador.controllers;
 
 import com.rubejuca.proyectointegrador.model.types.Rol;
 
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class RolesApi {
+public class RolesController {
 
   @GetMapping("/api/roles")
   public Rol[] findAll() {

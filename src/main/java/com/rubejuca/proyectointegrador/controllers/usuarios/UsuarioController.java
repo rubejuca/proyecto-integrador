@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api.usuarios;
+package com.rubejuca.proyectointegrador.controllers.usuarios;
 
 import com.rubejuca.proyectointegrador.model.entity.Usuario;
 import com.rubejuca.proyectointegrador.model.types.Permisos;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class UsuarioApi {
+public class UsuarioController {
 
   @Autowired
   UsuarioService usuarioService;

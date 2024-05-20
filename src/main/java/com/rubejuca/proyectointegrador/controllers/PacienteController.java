@@ -1,4 +1,4 @@
-package com.rubejuca.proyectointegrador.api;
+package com.rubejuca.proyectointegrador.controllers;
 
 import com.rubejuca.proyectointegrador.model.entity.Paciente;
 import com.rubejuca.proyectointegrador.services.PacienteService;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class PacienteApi {
+public class PacienteController {
 
   @Autowired
   PacienteService pacienteService;
