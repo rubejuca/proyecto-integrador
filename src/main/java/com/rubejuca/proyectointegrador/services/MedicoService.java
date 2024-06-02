@@ -2,6 +2,7 @@ package com.rubejuca.proyectointegrador.services;
 
 import com.rubejuca.proyectointegrador.model.entity.Medico;
 import com.rubejuca.proyectointegrador.respositories.MedicoRepository;
+import com.rubejuca.proyectointegrador.respositories.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,12 @@ public class MedicoService {
 
   @Autowired
   MedicoRepository medicoRepository;
+
+
+  public MedicoService(MedicoRepository medicoRepository) {
+    this.medicoRepository = medicoRepository;
+  }
+
 
   public Medico create(Medico medico) {
     if (medicoRepository.existsByDocumentoAndTipoDocumento(medico.getDocumento(), medico.getTipoDocumento())) {
