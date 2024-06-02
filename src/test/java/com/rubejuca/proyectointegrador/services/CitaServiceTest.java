@@ -395,7 +395,7 @@ public class CitaServiceTest {
 
 
     CitaDto dto = CitaDto.builder()
-        .fechaHora(LocalDateTime.of(2050, 3, 31, 14, 30))
+        .fechaHora(LocalDateTime.)
         .medicoId("123456")
         .motivo("motivo actualizado")
         .build();
@@ -410,7 +410,7 @@ public class CitaServiceTest {
         .build();
 
 
-    
+
 
     when(citaService.validarPaciente(cita.getPacienteId(),cita.getFechaHora()))
     .thenReturn(cita);
