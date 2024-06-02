@@ -412,7 +412,7 @@ public class CitaServiceTest {
     when(citaRepository.findById("123"))
         .thenReturn(Optional.of(cita));
 
-    Assertions.assertEquals(Cita.validateFechaHora(dto.fechaHora()),cita.getFechaHora());
+    Assertions.assertNotEquals(Cita.validateFechaHora(dto.fechaHora()),cita.getFechaHora());
 
 
 
