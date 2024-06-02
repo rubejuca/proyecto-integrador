@@ -1,13 +1,15 @@
 package com.rubejuca.proyectointegrador.model.entity;
 
+import com.rubejuca.proyectointegrador.controllers.citas.CitaDto;
 import com.rubejuca.proyectointegrador.model.types.Sexo;
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Builder;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
-
+@Builder
 @Data
 @Entity
 @Table(name = "PACIENTE")
@@ -50,5 +52,6 @@ public class Paciente {
 
   @Column(name = "direccion")
   private String direccion;
+
 
 }

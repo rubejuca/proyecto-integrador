@@ -14,6 +14,10 @@ public class PacienteService {
   @Autowired
   PacienteRepository pacienteRepository;
 
+  public PacienteService(PacienteRepository pacienteRepository) {
+    this.pacienteRepository = pacienteRepository;
+  }
+
   public Paciente create(Paciente paciente) {
     if (pacienteRepository.existsByDocumentoAndTipoDocumento(paciente.getDocumento(), paciente.getTipoDocumento())) {
       throw new IllegalArgumentException(
