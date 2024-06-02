@@ -395,7 +395,7 @@ public class CitaServiceTest {
 
 
     CitaDto dto = CitaDto.builder()
-        .fechaHora(LocalDateTime.)
+        .fechaHora(LocalDateTime.of(2050, 3, 31, 14, 30))
         .medicoId("123456")
         .motivo("motivo actualizado")
         .build();
@@ -409,11 +409,15 @@ public class CitaServiceTest {
         .fechaHora(LocalDateTime.of(2050, 3, 30, 14, 30))
         .build();
 
+    when(citaRepository.findById("123"))
+        .thenReturn(Optional.of(cita));
+
+    Assertions.assertEquals(Cita.validateFechaHora(dto.fechaHora()),cita.getFechaHora());
 
 
 
-    when(citaService.validarPaciente(cita.getPacienteId(),cita.getFechaHora()))
-    .thenReturn(cita);
+
+
 
 
 

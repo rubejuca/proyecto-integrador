@@ -12,8 +12,6 @@ import org.hibernate.annotations.GenericGenerator;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "USUARIO")
