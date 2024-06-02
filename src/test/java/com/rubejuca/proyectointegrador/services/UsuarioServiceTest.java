@@ -64,7 +64,7 @@ public class UsuarioServiceTest {
         .medicoId(null)
         .build();
 
-    // Simulate that the user exists
+    // Simulate that the user does not exist
     Mockito.when(usuarioRepository.existsByEmail("a@a.com"))
         .thenReturn(true);
 
@@ -118,9 +118,6 @@ public class UsuarioServiceTest {
 
     Mockito.verifyNoMoreInteractions(usuarioRepository);
   }
-<<<<<<< HEAD
-  
-=======
 
   @Test
   public void testFindById() {
@@ -229,6 +226,5 @@ public class UsuarioServiceTest {
 
 
 
->>>>>>> 49efc3d900a660a2b816a628c8618a5a2584173c
 }
 
