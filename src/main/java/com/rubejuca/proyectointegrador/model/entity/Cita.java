@@ -76,12 +76,15 @@ public class Cita {
         return fechaHora;
     }
 
+    // Esto evita tener un modelo anémico: Modelo anémico es cuando la responsabilidad del modelo
+    // no la tiene el modelo sino otras capas
     public void atender(String diagnostico) {
         this.fechaAtencion = LocalDateTime.now();
         this.diagnostico = diagnostico;
         this.estado = EstadoCitas.ATENDIDA;
     }
 
+    // Esto evita tener un modelo anémico
     public void actualizar(LocalDateTime fechaHora, String medicoId, String motivo) {
         this.fechaHora = validateFechaHora(fechaHora);
         this.medicoId = isNotEmpty(medicoId, "Debe ingresar un Médico");
