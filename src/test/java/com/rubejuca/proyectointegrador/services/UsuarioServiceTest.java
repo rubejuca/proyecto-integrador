@@ -5,10 +5,12 @@ import com.rubejuca.proyectointegrador.controllers.usuarios.ActualizarUsuarioDto
 import com.rubejuca.proyectointegrador.model.entity.Usuario;
 import com.rubejuca.proyectointegrador.model.types.Rol;
 import com.rubejuca.proyectointegrador.respositories.UsuarioRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.List;
 import java.util.Optional;
 
 public class UsuarioServiceTest {
@@ -116,4 +118,113 @@ public class UsuarioServiceTest {
 
     Mockito.verifyNoMoreInteractions(usuarioRepository);
   }
+
+  @Test
+  public void testFindById() {
+
+    UsuarioRepository usuarioRepository = Mockito.mock(UsuarioRepository.class);
+    UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+
+
+    Usuario usuario = Usuario.builder()
+        .id("123")
+        .rol(Rol.RECEPCIONISTA)
+        .email("a@a.com")
+        .medicoId(null)
+        .build();
+
+
+    Mockito.when(usuarioRepository.findById("123"))
+        .thenReturn(Optional.of(usuario));
+
+
+    Usuario found = usuarioService.findById("123");
+
+
+    Assertions.assertNotNull(found);
+    Assertions.assertEquals("123", found.getId());
+  }
+
+
+  @Test
+  public void testFindByIdwhenIdNotExists() {
+
+    UsuarioRepository usuarioRepository = Mockito.mock(UsuarioRepository.class);
+    UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+
+
+    Mockito.when(usuarioRepository.findById("123"))
+        .thenReturn(Optional.empty());
+
+    EntityNotFoundException exception = Assertions.assertThrows(EntityNotFoundException.class, () -> {
+      usuarioService.findById("123");
+    });
+
+
+    Assertions.assertEquals("El usuario 123 no existe", exception.getMessage());
+
+  }
+
+
+  @Test
+  public void testFindByEmailwhenEmailExists() {
+
+    UsuarioRepository usuarioRepository = Mockito.mock(UsuarioRepository.class);
+    UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+
+    Usuario usuario = Usuario.builder()
+        .id("123")
+        .rol(Rol.RECEPCIONISTA)
+        .email("a@a.com")
+        .medicoId(null)
+        .build();
+
+    Mockito.when(usuarioRepository.findByEmail("a@a.com"))
+        .thenReturn(Optional.of(usuario));
+
+    Usuario found = usuarioService.findByEmail("a@a.com");
+
+    Assertions.assertNotNull(found);
+    Assertions.assertEquals("a@a.com", found.getEmail());
+  }
+
+
+  @Test
+  public void testFindByEmailwhenEmailNotExists() {
+
+    UsuarioRepository usuarioRepository = Mockito.mock(UsuarioRepository.class);
+    UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+
+    Mockito.when(usuarioRepository.findByEmail("a@a.com"))
+        .thenReturn(Optional.empty());
+
+    EntityNotFoundException exception = Assertions.assertThrows(EntityNotFoundException.class, () -> {
+      usuarioService.findByEmail("a@a.com");
+    });
+
+    Assertions.assertEquals("El usuario a@a.com no existe", exception.getMessage());
+  }
+
+  @Test
+  public void testFindAll() {
+    UsuarioRepository usuarioRepository = Mockito.mock(UsuarioRepository.class);
+    UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+
+    Mockito.when(usuarioRepository.findAll())
+        .thenReturn(List.of(Usuario.builder()
+            .id("123")
+            .rol(Rol.RECEPCIONISTA)
+            .email("a@a.com")
+            .medicoId(null)
+            .build()));
+
+    List<Usuario> found = usuarioService.findAll();
+
+    Assertions.assertNotNull(found);
+    Assertions.assertEquals(1, found.size());
+  }
+
+
+
 }
+
