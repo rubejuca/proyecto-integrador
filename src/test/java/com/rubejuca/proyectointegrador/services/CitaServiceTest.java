@@ -413,14 +413,6 @@ public class CitaServiceTest {
         .thenReturn(Optional.of(cita));
 
     Assertions.assertNotEquals(Cita.validateFechaHora(dto.fechaHora()),cita.getFechaHora());
-
-
-
-
-
-
-
-
   }
 
 
