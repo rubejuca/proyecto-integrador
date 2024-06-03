@@ -11,8 +11,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -75,6 +78,39 @@ public class MedicoControllerTest {
             .content(objectMapper.writeValueAsString(medico)))
         .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.message", is("El medico ya existe")));
+  }
+
+  @Test
+  public void testLeerMedicos() throws Exception {
+
+    Medico medico = Medico.builder()
+        .id("123")
+        .documento("12345")
+        .tipoDocumento(TipoDocumento.TI)
+        .nombres("Danna")
+        .apellidos("Rojas")
+        .email("danna@.com")
+        .telefono("3125851410")
+        .direccion("carrera 123")
+        .especialidad("Cardiologo")
+        .build();
+
+    when(medicoService.readAll())
+        .thenReturn(List.of(medico));
+
+    mvc.perform(get("/api/medicos"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.size()", is(1)))
+        .andExpect(jsonPath("$[0].id", is("123")))
+        .andExpect(jsonPath("$[0].documento", is("12345")))
+        .andExpect(jsonPath("$[0].tipoDocumento", is("TI")))
+        .andExpect(jsonPath("$[0].nombres", is("Danna")))
+        .andExpect(jsonPath("$[0].apellidos", is("Rojas")))
+        .andExpect(jsonPath("$[0].email", is("danna@.com")))
+        .andExpect(jsonPath("$[0].telefono", is("3125851410")))
+        .andExpect(jsonPath("$[0].direccion", is("carrera 123")))
+        .andExpect(jsonPath("$[0].especialidad", is("Cardiologo")));
+
   }
 
 }

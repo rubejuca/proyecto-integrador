@@ -2,12 +2,17 @@ package com.rubejuca.proyectointegrador.controllers;
 
 import com.rubejuca.proyectointegrador.model.entity.Medico;
 import com.rubejuca.proyectointegrador.services.MedicoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(
+    name = "Medico API",
+    description = "Permite gestionar los medicos"
+)
 @RestController
 public class MedicoController {
 
