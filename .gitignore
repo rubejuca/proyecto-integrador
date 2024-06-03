@@ -1,5 +1,5 @@
 *#
-.gradlew/
+.gradle/
 .idea/
 *.iml
 *.ipr
