@@ -1,4 +1,5 @@
 *#
+.gradlew/
 .idea/
 *.iml
 *.ipr
