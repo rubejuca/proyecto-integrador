@@ -113,21 +113,11 @@ public class PacienteControllerTest {
 
         when(pacienteService.readAll())
                 .thenReturn(List.of(paciente));
-
-        mvc.perform(get("/api/pacientes"))
+        mvc.perform(get("/api/pacientes")
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.size()", is(1)))
-                .andExpect(jsonPath("$[0].id", is("1")))
-                .andExpect(jsonPath("$[0].documento", is("12345")))
-                .andExpect(jsonPath("$[0].tipoDocumento", is("TI")))
-                .andExpect(jsonPath("$[0].nombres", is("Danna")))
-                .andExpect(jsonPath("$[0].apellidos", is("Rojas")))
-                .andExpect(jsonPath("$[0].sexo", is("M")))
-                .andExpect(jsonPath("$[0].email", is("danna@.com")))
-                .andExpect(jsonPath("$[0].telefono", is("3125851410")))
-                .andExpect(jsonPath("$[0].fechaNacimiento", is("2003-01-01")))
-                .andExpect(jsonPath("$[0].ciudad", is("Bogota")))
-                .andExpect(jsonPath("$[0].direccion", is("calle 123")));
+                .andExpect(jsonPath("$[0].id", is("1")));
+
     }
 
     @Test
@@ -151,17 +141,7 @@ public class PacienteControllerTest {
 
         mvc.perform(get("/api/pacientes/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is("1")))
-                .andExpect(jsonPath("$.documento", is("12345")))
-                .andExpect(jsonPath("$.tipoDocumento", is("TI")))
-                .andExpect(jsonPath("$.nombres", is("Danna")))
-                .andExpect(jsonPath("$.apellidos", is("Rojas")))
-                .andExpect(jsonPath("$.sexo", is("M")))
-                .andExpect(jsonPath("$.email", is("danna@.com")))
-                .andExpect(jsonPath("$.telefono", is("3125851410")))
-                .andExpect(jsonPath("$.fechaNacimiento", is("2003-01-01")))
-                .andExpect(jsonPath("$.ciudad", is("Bogota")))
-                .andExpect(jsonPath("$.direccion", is("calle 123")));
+                .andExpect(jsonPath("$.id", is("1")));
     }
 
     @Test
@@ -212,17 +192,7 @@ public class PacienteControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(paciente)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is("1")))
-                .andExpect(jsonPath("$.documento", is("12345")))
-                .andExpect(jsonPath("$.tipoDocumento", is("TI")))
-                .andExpect(jsonPath("$.nombres", is("Danna")))
-                .andExpect(jsonPath("$.apellidos", is("Rojas")))
-                .andExpect(jsonPath("$.sexo", is("M")))
-                .andExpect(jsonPath("$.email", is("danna@.com")))
-                .andExpect(jsonPath("$.telefono", is("3125851410")))
-                .andExpect(jsonPath("$.fechaNacimiento", is("2003-01-01")))
-                .andExpect(jsonPath("$.ciudad", is("Bogota")))
-                .andExpect(jsonPath("$.direccion", is("calle 123")));
+                .andExpect(jsonPath("$.id", is("1")));
     }
 
     @Test

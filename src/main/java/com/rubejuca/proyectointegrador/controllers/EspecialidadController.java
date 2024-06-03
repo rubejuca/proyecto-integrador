@@ -4,6 +4,7 @@ package com.rubejuca.proyectointegrador.controllers;
 import com.rubejuca.proyectointegrador.model.entity.Especialidad;
 import com.rubejuca.proyectointegrador.respositories.EspecialidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class EspecialidadController {
   EspecialidadRepository especialidadRepository;
 
   @PostMapping("/api/especialidades")
+  @ResponseStatus(HttpStatus.CREATED)
   public Especialidad crear(@RequestBody Especialidad especialidad) {
     return especialidadRepository.save(especialidad);
   }
@@ -31,7 +33,7 @@ public class EspecialidadController {
   }
 
   @PutMapping("/api/especialidades/{id}")
-  public Especialidad crear(@PathVariable("id") Long id, @RequestBody Especialidad especialidad) {
+  public Especialidad actualizar(@PathVariable("id") Long id, @RequestBody Especialidad especialidad) {
     return especialidadRepository.save(especialidad);
   }
 
