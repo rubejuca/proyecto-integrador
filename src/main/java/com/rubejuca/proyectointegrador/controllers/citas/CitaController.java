@@ -4,6 +4,7 @@ import com.rubejuca.proyectointegrador.model.entity.Cita;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.services.CitaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class CitaController {
     CitaService citaService;
 
     @PostMapping("/api/citas")
+    @ResponseStatus(HttpStatus.CREATED)
     public CitaDto crear(@RequestBody CrearCitaDto dto) {
         Cita cita = CitasMapper.toCita(dto);
         Cita citaCreada = citaService.create(cita);
