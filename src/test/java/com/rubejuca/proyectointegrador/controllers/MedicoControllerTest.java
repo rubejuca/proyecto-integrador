@@ -59,7 +59,7 @@ public class MedicoControllerTest {
     mvc.perform(post("/api/medicos")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(medico)))
-        .andExpect(status().isCreated());
+            .andExpect(status().isCreated());
   }
 
   @Test

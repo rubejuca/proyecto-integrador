@@ -6,6 +6,7 @@ import com.rubejuca.proyectointegrador.services.PacienteService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class PacienteController {
   PacienteService pacienteService;
 
   @PostMapping("/api/pacientes")
+  @ResponseStatus(HttpStatus.CREATED)
   public Paciente crear(@RequestBody Paciente paciente) {
     return pacienteService.create(paciente);
   }
