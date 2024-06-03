@@ -4,19 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rubejuca.proyectointegrador.model.entity.Medico;
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
 import com.rubejuca.proyectointegrador.services.MedicoService;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = {MedicoController.class})
@@ -31,7 +29,7 @@ public class MedicoControllerTest {
   private ObjectMapper objectMapper = new ObjectMapper();
 
   @Test
-  public void testCreate() throws Exception {
+  public void testCrearMedicoExitosamente() throws Exception {
 
     Medico medico = Medico.builder()
         .id("123")
@@ -49,13 +47,13 @@ public class MedicoControllerTest {
         .thenReturn(medico);
 
     mvc.perform(post("/api/medicos")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(objectMapper.writeValueAsString(medico)))
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(medico)))
         .andExpect(status().isCreated());
   }
 
   @Test
-  public void testFailCreate() throws Exception {
+  public void testFallaCrearMedicoPorqueYaExiste() throws Exception {
 
     Medico medico = Medico.builder()
         .id("123")
@@ -75,7 +73,8 @@ public class MedicoControllerTest {
     mvc.perform(post("/api/medicos")
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(medico)))
-        .andExpect(status().isBadRequest());
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.message", is("El medico ya existe")));
   }
 
 }
