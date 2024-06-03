@@ -1,20 +1,19 @@
 package com.rubejuca.proyectointegrador.controllers;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.jayway.jsonpath.JsonPath;
-import com.rubejuca.proyectointegrador.controllers.citas.*;
+import com.rubejuca.proyectointegrador.controllers.citas.ActualizarCitaDto;
+import com.rubejuca.proyectointegrador.controllers.citas.AtencionCitaDto;
+import com.rubejuca.proyectointegrador.controllers.citas.CitaController;
+import com.rubejuca.proyectointegrador.controllers.citas.CrearCitaDto;
 import com.rubejuca.proyectointegrador.model.entity.Cita;
 import com.rubejuca.proyectointegrador.model.types.EstadoCitas;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.services.CitaService;
 import jakarta.persistence.EntityNotFoundException;
-import org.apache.coyote.http11.upgrade.UpgradeServletOutputStream;
-import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.AdditionalAnswers;
 import org.mockito.Mockito;
@@ -26,11 +25,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
