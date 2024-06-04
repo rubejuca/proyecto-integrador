@@ -3,12 +3,17 @@ package com.rubejuca.proyectointegrador.model.entity;
 import com.rubejuca.proyectointegrador.model.types.Sexo;
 import com.rubejuca.proyectointegrador.model.types.TipoDocumento;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
 @Entity

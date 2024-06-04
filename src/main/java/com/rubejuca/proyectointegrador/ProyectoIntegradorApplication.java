@@ -1,8 +1,7 @@
 package com.rubejuca.proyectointegrador;
 
-import java.util.stream.StreamSupport;
-
-import org.apache.el.stream.Stream;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -29,5 +28,18 @@ public class ProyectoIntegradorApplication {
 								HttpMethod.DELETE.name(), HttpMethod.PATCH.name());
 			}
 		};
+	}
+
+	@Bean
+	public OpenAPI customOpenAPI() {
+		return new OpenAPI()
+				.info(new io.swagger.v3.oas.models.info.Info()
+						.title("SITAP - Proyecto Integrador API")
+						.version("1.0.0")
+						.description("Sistema de Información para Tratamiento de Adicción a la Pornografía")
+						.termsOfService("http://swagger.io/terms/")
+						.license(new License()
+								.name("Apache 2.0")
+								.url("http://springdoc.org")));
 	}
 }
