@@ -4,12 +4,18 @@ import com.rubejuca.proyectointegrador.model.entity.Usuario;
 import com.rubejuca.proyectointegrador.model.types.Permisos;
 import com.rubejuca.proyectointegrador.services.UsuarioService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+@Tag(
+    name = "Usuario API",
+    description = "Permite gestionar los usuarios"
+)
 
 @RestController
 @Slf4j

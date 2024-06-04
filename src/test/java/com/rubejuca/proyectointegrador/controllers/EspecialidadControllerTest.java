@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -60,9 +61,12 @@ public class EspecialidadControllerTest {
                 .nombre("Cardiologo")
                 .build();
 
-        when(especialidadRepository.findAll()).thenReturn(List.of(especialidad));
+        when(especialidadRepository.findAll())
+            .thenReturn(List.of(especialidad));
 
-        mvc.perform(get("/api/especialidades"))
+        mvc.perform(get("/api/especialidades")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(List.of(especialidad))))
                 .andExpect(status().isOk());
     }
 
@@ -74,9 +78,12 @@ public class EspecialidadControllerTest {
                 .nombre("Cardiologo")
                 .build();
 
-        when(especialidadRepository.findById(123L)).thenReturn(java.util.Optional.of(especialidad));
+        when(especialidadRepository.findById(123L))
+            .thenReturn(java.util.Optional.of(especialidad));
 
-        mvc.perform(get("/api/especialidades/123"))
+        mvc.perform(get("/api/especialidades/123")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(especialidad)))
                 .andExpect(status().isOk());
     }
 
@@ -88,9 +95,11 @@ public class EspecialidadControllerTest {
                 .nombre("Cardiologo")
                 .build();
         when(especialidadRepository.findById(123L))
-                .thenThrow(new IllegalArgumentException("Especialidad no existe"));
+                .thenReturn(Optional.empty());
 
-        mvc.perform(get("/api/especialidades/123"))
+        mvc.perform(get("/api/especialidades/123")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(especialidad)))
                 .andExpect(status().isBadRequest());
     }
 

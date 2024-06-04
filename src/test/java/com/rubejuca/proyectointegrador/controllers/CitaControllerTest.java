@@ -1,6 +1,7 @@
 package com.rubejuca.proyectointegrador.controllers;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -14,12 +15,14 @@ import com.rubejuca.proyectointegrador.model.types.EstadoCitas;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.services.CitaService;
 import jakarta.persistence.EntityNotFoundException;
+import org.hibernate.PropertyValueException;
 import org.junit.jupiter.api.Test;
 import org.mockito.AdditionalAnswers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -230,8 +233,6 @@ public class CitaControllerTest {
 
     AtencionCitaDto dto = new AtencionCitaDto("diagnostico");
 
-
-
     when(citaService.atender("123", "diagnostico"))
         .thenThrow(new EntityNotFoundException("La cita 123 no existe"));
 
@@ -242,6 +243,50 @@ public class CitaControllerTest {
         .andExpect(jsonPath("$.message", is("La cita 123 no existe")));
   }
 
+  @Test
+  public void testDataIntegrityViolationConCause() throws Exception {
 
+    AtencionCitaDto dto = new AtencionCitaDto("diagnostico");
+
+    when(citaService.atender("123", "diagnostico"))
+        .thenThrow(new DataIntegrityViolationException("La cita 123 no existe", new PropertyValueException("Error", "cita", "fechaHora")));
+
+    mvc.perform(put("/api/citas/123/atender")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(dto)))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.message", is("El campo 'fechaHora' debe tener un valor")));
+
+  }
+
+  @Test
+  public void testDataIntegrityViolationSinCause() throws Exception {
+
+    AtencionCitaDto dto = new AtencionCitaDto("diagnostico");
+
+    when(citaService.atender("123", "diagnostico"))
+        .thenThrow(new DataIntegrityViolationException("La cita 123 no existe"));
+
+    mvc.perform(put("/api/citas/123/atender")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(dto)))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.message", is("La cita 123 no existe")));
+  }
+
+  @Test
+  public void testCualquierOtraException() throws Exception {
+
+    AtencionCitaDto dto = new AtencionCitaDto("diagnostico");
+
+    when(citaService.atender("123", "diagnostico"))
+        .thenThrow(new RuntimeException("La cita 123 no existe"));
+
+    mvc.perform(put("/api/citas/123/atender")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(dto)))
+        .andExpect(status().isInternalServerError())
+        .andExpect(jsonPath("$.message", is("La cita 123 no existe")));
+  }
 
 }

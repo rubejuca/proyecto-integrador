@@ -3,11 +3,17 @@ package com.rubejuca.proyectointegrador.controllers.citas;
 import com.rubejuca.proyectointegrador.model.entity.Cita;
 import com.rubejuca.proyectointegrador.respositories.CitaInfo;
 import com.rubejuca.proyectointegrador.services.CitaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+@Tag(
+    name = "Cita API",
+    description = "Permite gestionar las citas"
+)
 
 @RestController
 public class CitaController {

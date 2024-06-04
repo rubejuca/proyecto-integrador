@@ -3,11 +3,17 @@ package com.rubejuca.proyectointegrador.controllers;
 
 import com.rubejuca.proyectointegrador.model.entity.Especialidad;
 import com.rubejuca.proyectointegrador.respositories.EspecialidadRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+@Tag(
+    name = "Especialidad API",
+    description = "Permite gestionar las especialidades"
+)
 
 @RestController
 public class EspecialidadController {

@@ -299,6 +299,25 @@ public class CitaServiceTest {
   }
 
   @Test
+  public void testAtenderCitaWhenCitaExists() {
+
+    PacienteService pacienteService = mock(PacienteService.class);
+    MedicoService medicoService = mock(MedicoService.class);
+    CitaRepository citaRepository = mock(CitaRepository.class);
+
+    CitaService citaService = new CitaService(citaRepository,medicoService,pacienteService);
+
+    when(citaRepository.findById("123"))
+        .thenReturn(Optional.empty());
+
+    EntityNotFoundException exception = Assertions.assertThrows(EntityNotFoundException.class, () -> {
+      citaService.atender("123", "diagnostico");});
+
+
+    assertEquals("La cita 123 no existe", exception.getMessage());
+  }
+
+  @Test
   public void testAtenderCitaWhenCitaNotExists() {
 
     PacienteService pacienteService = mock(PacienteService.class);
